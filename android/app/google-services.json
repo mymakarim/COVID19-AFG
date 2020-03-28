@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "513117777467",
+    "firebase_url": "https://flutterwpnews.firebaseio.com",
+    "project_id": "flutterwpnews",
+    "storage_bucket": "flutterwpnews.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513117777467:android:9cf0a2fe057598d0b9f61e",
+        "android_client_info": {
+          "package_name": "com.codenawis.newschin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513117777467-vmf1aeq3dioec03vk0ff1ning23mu5bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsoO61jw6NacL-LKGMvG0TUflUr1mZ6GE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513117777467-vmf1aeq3dioec03vk0ff1ning23mu5bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

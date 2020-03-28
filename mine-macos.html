@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+    <div class="row">
+
+
+        <div class="col s2 hide-on-small-only">
+            <div class="pinned">
+                <h5>Documentation</h5>
+                <ul class="section table-of-contents">
+                    <li><a href="#prologue">Prologue</a></li>
+                    <li><a href="">Get Started</a></li>
+                    <li><a href="#started">System requirements</a></li>
+                    <li><a href="#deploy">Get the Flutter SDK </a></li>
+                    <li><a href="#cpanel">Run flutter doctor</a></li>
+                    <li><a href="#using">Android setup</a></li>
+                    <li><a href="#tmdb">Setup an android device</a></li>
+                    <li><a href="#firebase">Install Flutter & Dart Plugin</a></li>
+                    <li><a href="#admob">Import Project into android studio</a></li>
+                    <li><a href="#flutter">Run the Flutter App</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col s10">
+            <div id="prologue" class="section scrollspy">
+                <h3>Prologue</h3>
+                <h5>NewsApp Documentation by <a href="http://codenawis.com"
+                        target="_blank">Yahya Makarim</a> v1.0</h5>
+                <blockquote>
+                    NewsApp <br>
+                    Created: feb 1st, 2020 <br>
+                    By: Yahya Makarim <br>
+                    Email: ymakarim@gmail.com</blockquote>
+
+                <p>Thank you for purchasing my script. If you have any questions that are beyond the scope of this help
+                    file, please feel free to email via my user page contact form <a
+                        href="http://codenawis.com" target="_blank">here</a>. Thanks so much!</p>
+            </div>
+            <div id="" class="section scrollspy">
+                <h3>Get Started</h3>
+                <h5>What is Flutter?</h5>
+                <blockquote>
+                <p>Flutter is a mobile UI framework to develop Native apps for IOS & Android. The Language which flutters supports is Dart.</p>
+            </blockquote>
+                <h5>What is NewsApp?</h5>
+                <blockquote><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ullam eveniet itaque,<br> ad architecto maxime repellendus necessitatibus quasi molestias blanditiis voluptates pariatur animi iusto veritatis nobis eius adipisci? Explicabo, ea.</p></blockquote>
+                <h5>How to use NewsApp?</h5>
+                
+                <p>Following steps guide you to install and use NewsApp in most efficient and simplest way possible.</p>
+                <blockquote>
+                <ol>
+                    <li>Make sure your development environment meets the minimum requirements</li>
+                    <li>Get the Flutter SDK</li>
+                    <li>Update your environmental path</li>
+                    <li>Run flutter doctor to verify that you’ve set everything up correctly</li>
+                    <li>Android setup</li>
+                    <li>Setup an android device</li>
+                    <li>Install Flutter & Dart language Plugin in Android Studio</li>
+                    <li>Import Project into android studio</li>
+                    <li>Run the Flutter App from Android Studio</li>
+                </ol>
+            </blockquote>
+            </div>
+            <div id="started" class="section scrollspy">
+                <h3>System requirements</h3>
+                <p>Make sure your development environment meets the minimum requirements</p>
+                <p>To install and run Flutter, your development environment must meet these minimum requirements:</p>
+                
+            <blockquote>
+                <ul>
+                    <li><b>Operating Systems: </b>macOS (64-bit)</li>
+                    <li><b>Disk Space: </b>2.8 GB (does not include disk space for IDE/tools).</li>
+                    <li><b>Tools: </b>Flutter depends on these tools being available in your environment.
+                        <ol>
+                            <li>bash</li>
+                            <li>Curl</li>
+                            <li>git 2.x</li>
+                            <li>mkdir</li>
+                            <li>rm</li>
+                            <li>unzip</li>
+                            <li>which</li>
+                        </ol>
+                    </li>
+                </ul>
+            </blockquote>
+
+            </div>
+            <div id="deploy" class="section scrollspy">
+                <h3>Get the Flutter SDK</h3>
+                <p>Download the following installation bundle to get the latest stable release of the Flutter SDK:</p>
+                <blockquote>
+                    <ol>
+                        <li>
+                            <b>For MacOs users</b>
+                            <a href="https://storage.googleapis.com/flutter_infra/releases/stable/macos/flutter_macos_v1.12.13+hotfix.7-stable.zip">Click Here</a>
+                        </li>    
+                    </ol>
+                </blockquote>
+                <p>After downloading the flutter SDK from one of the above links. Extract the download into a suitable folder</p>
+                <p><b>For Example: </b>
+                    <blockquote>
+                        <B>cd ~/development<Br>
+                            unzip ~/Downloads/flutter_macos_v1.12.13+hotfix.7-stable.zip</B>
+                    </blockquote>
+                </p>
+            </div>
+            <div id="cpanel" class="section scrollspy">
+                <h3>Add the flutter tool to your path:</h3>
+                <blockquote>
+                    <p>export PATH="$PATH:`pwd`/flutter/bin"</p>
+                </blockquote>
+
+            </div>
+            <div id="using" class="section scrollspy">
+                <h3>Run flutter doctor</h3>
+                <p>Run flutter doctor in the terminal to get the current installation status<br>
+                <blockquote><i> flutter doctor</i></blockquote>
+                <p>It shows now the current situation with installation. You just need to follow the instructions.</p>    
+                <img src="images/macDcotor.png" width="80%" alt="">
+            </div>
+            <div id="tmdb" class="section scrollspy">
+                <h3>Update your path</h3>
+                <p>The steps for modifying this variable permanently for all terminal sessions are machine-specific. Typically you add a line to a file that is executed whenever you open a new window. For example:</p>
+                <blockquote>
+                    <ol>
+                        <li>
+                            <p>Determine the directory where you placed the Flutter SDK. You need this in Step 3.</p>
+                        </li>
+                        <li>
+                            <p>Open (or create) the rc file for your shell. For example, macOS Mojave (and earlier) uses the Bash shell by default, so edit <B>$HOME/.bash_profile or $HOME/.bashrc.</B> macOS Catalina uses the Z shell by default, so edit <B>$HOME/.zshrc.</b> If you are using a different shell, the file path and filename will be different on your machine.</p>
+                        </li>
+                        <li><b>Add the following line and change <b>[PATH_TO_FLUTTER_GIT_DIRECTORY]</b> to be the path where you cloned Flutter’s git repo:</b>
+                            <blockquote>
+                                export PATH="$PATH:[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin"
+                            </blockquote>
+                        </li>
+                        <li>
+                            <p>Run source <code>$HOME/.<rc file></code> to refresh the current window, or open a new terminal window to automatically source the file.</p>
+                        </li>
+                        <li>
+                            <p>Verify that the flutter/bin directory is now in your PATH by running:</p>
+                            <blockquote>
+                                echo $PATH
+                            </blockquote>
+                        </li>
+                        <li>
+                            <p>Verify that the flutter command is available by running:</p>
+                            <blockquote>
+                                which flutter
+                            </blockquote>
+                        </li>
+                    </ol>
+                </blockquote>
+            </div>
+            <div id="firebase" class="section scrollspy">
+                <h3>Set up your Android device</h3>
+                <p><b>For IOS setup please click on the link</b> <a href="https://flutter.dev/docs/get-started/install/macos">Click Here</a></p>
+                <p>To prepare to run and test your Flutter app on an Android device, you’ll need an Android device running Android 4.1 (API level 16) or higher.</p>
+                <blockquote>
+                <ol>
+                    <li>
+                        Enable Developer options and USB debugging on your device. Detailed instructions are available in the <a target="_blank" href="https://developer.android.com/studio/debug/dev-options">Android documentation.</a>
+                    </li>
+                    <li>Using a USB cable, plug your phone into your computer. If prompted on your device, authorize your computer to access your device.</li>
+                    <li>In the terminal, run the flutter devices command to verify that Flutter recognizes your connected Android device. By default, Flutter uses the version of the Android SDK where your adb tool is based. </li>
+                    <p><b>The output would be something like this:</b></p>
+                    <br>
+                    <img src="images/devices.png" alt="">
+                    <br>
+                    <p>If you want Flutter to use a different installation of the Android SDK, set the ANDROID_HOME environment variable to that installation directory.</p>
+                </ol>
+            </blockquote>
+            </div>
+            <div id="admob" class="section scrollspy">
+                <h3>Install Flutter & Dart language Plugin in Android Studio</h3>
+                <blockquote>
+                    <ol>
+                        <li>
+                            <b> Start Android Studio.</b>
+                        </li>
+                        <li>
+                            <b>Open plugin preferences (Preferences > Plugins on macOS.)</b>
+                        </li>
+                        <li>
+                            <b>Open File > Settings > Plugins on Windows & Linux,</b>
+                        </li>
+                        <li>
+                            <b>Select Browse repositories, search for Flutter plugin and click Install.</b>
+                        </li>
+                        <li>
+                            <b>Click Yes when prompted to install the Dart plugin.</b>
+                        </li>
+                        <li>
+                            <b>Click Restart.</b>
+                        </li>
+                        <li>
+                            <b>Restart the Android Studio also to configure properly.</b>
+                        </li>
+                    </ol>
+                </blockquote>
+            </div>
+            <div id="flutter" class="section scrollspy">
+                <h3>Import Project into android studio</h3>
+                <p>import the project by going through following below steps:
+                    <blockquote>
+                        <ol>
+                            <li>Open Android Studio</li>
+                            <li>Go to <B>File -> Open -> In Open File or Project</B> window select the project you want to import.</li>
+                            <p>Once you have done above steps try to resolve warnings shown in the log window. Warnings may be like update dependencies used in the project, etc.</p>
+                            <br>
+                            <img src="images/import.png" alt="">
+                            <br>
+                        </ol>
+                    </blockquote>
+                    <h4>How to update dependencies?</h4>
+                    <blockquote>
+                    <p>When project opens in Android studio, it will show error of packages and dependencies. So, click on Get Dependencies on the top. Android studio will automatically add all the required dependencies and packages.</p>
+                </blockquote>
+            </div>
+            <div id="keystore" class="section scrollspy">
+                <h3>Run the Flutter App from Android Studio</h3>
+                <p>Locate Android Studio main tool bar. See the below screenshot to understand the project running buttons.
+
+                    <blockquote>
+                        <img src="images/run.png" alt="">
+
+                    </blockquote>
+            </div>
+
+            <br>
+            <hr>
+            <p>Once again, thank you so much for purchasing this app. As I said at the beginning, I'd be glad to help
+                you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist.<br>
+                <br>Yahya Makarim.</p>
+
+
+        </div>
+    </div>
+
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.scrollspy');
+            var instances = M.ScrollSpy.init(elems, {
+                scrollOffset: 0
+            });
+        });
+    </script>
+</body>
+
+</html>
