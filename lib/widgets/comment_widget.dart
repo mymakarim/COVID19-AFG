@@ -84,7 +84,7 @@ Widget horizontalList({List<User> listData, String title, myContext}) {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      Helper.authorImage,
+                      (listData[index].image != '' && listData[index].image != null)? listData[index].image : Helper.authorImage
                     ),
                   ),
                   color: Colors.redAccent,

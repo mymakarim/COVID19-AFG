@@ -109,20 +109,20 @@ class _HomePageState extends State<HomePage>
     return SmartRefresher(
         enablePullDown: true,
         enablePullUp: false,
-        header: MaterialClassicHeader(),
+        header: MaterialClassicHeader(backgroundColor: Colors.redAccent, color: Colors.redAccent),
         footer: CustomFooter(
           builder: (BuildContext context, LoadStatus mode) {
             Widget body;
             if (mode == LoadStatus.idle) {
-              body = Text("pull up load");
+              body = Text("بالا بکشید");
             } else if (mode == LoadStatus.loading) {
               body = CupertinoActivityIndicator();
             } else if (mode == LoadStatus.failed) {
-              body = Text("Load Failed!Click retry!");
+              body = Text("خطا! لطفا دوباره امتحان کنید!");
             } else if (mode == LoadStatus.canLoading) {
-              body = Text("release to load more");
+              body = Text("لطفا رها کنید");
             } else {
-              body = Text("No more Data");
+              body = Text("دیتای بیشتر موجود نیست!");
             }
             return Container(
               height: 0,
@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage>
 //              I manually changed the cid to 6 for corona news
 //              ===================================================
                 child: horizontalList3(
-                    listData: listData, title: "کرونا نیوز", myContext: context),
+                    listData: listData, title: "کرونا نیوز", myContext: context, catId: 6),
               );
             }else if (index == 2) {
               return SizedBox(
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage>
               return SizedBox(
                 height: 355,
                 child: horizontalList3(
-                    listData: listData2, title: "پیشگیری", myContext: context),
+                    listData: listData2, title: "پیشگیری", myContext: context, catId: 8),
               );
             }else if (index == 5) {
               return SizedBox(

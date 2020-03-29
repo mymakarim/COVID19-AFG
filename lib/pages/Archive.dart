@@ -92,20 +92,20 @@ class _ArchivePageState extends State<ArchivePage> {
             ? SmartRefresher(
             enablePullDown: true,
             enablePullUp: true,
-            header: WaterDropHeader(),
+            header: MaterialClassicHeader(color: Colors.redAccent),
             footer: CustomFooter(
               builder: (BuildContext context, LoadStatus mode) {
                 Widget body;
                 if (mode == LoadStatus.idle) {
-                  body = Text("pull up load");
+                  body = Text("بالا بکشید");
                 } else if (mode == LoadStatus.loading) {
                   body = CupertinoActivityIndicator();
                 } else if (mode == LoadStatus.failed) {
-                  body = Text("Load Failed!Click retry!");
+                  body = Text("خطا! لطفا دوباره امتحان کنید!");
                 } else if (mode == LoadStatus.canLoading) {
-                  body = Text("release to load more");
+                  body = Text("لطفا رها کنید");
                 } else {
-                  body = Text("No more Data");
+                  body = Text("دیتای بیشتر موجود نیست!");
                 }
                 return Container(
                   height: 55.0,
@@ -149,10 +149,10 @@ class _ArchivePageState extends State<ArchivePage> {
                                   height: 50,
                                   width: 50,
                                   child: CircularProgressIndicator(
-                                    backgroundColor: Colors.grey,
+                                    strokeWidth: 1,
                                     valueColor:
                                     new AlwaysStoppedAnimation<Color>(
-                                        Colors.green),
+                                        Colors.redAccent),
                                   ),
                                 ),
                               ),

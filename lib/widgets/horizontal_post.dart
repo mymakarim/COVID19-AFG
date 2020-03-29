@@ -183,24 +183,11 @@ Widget horizontalPost({List<User> listData, String title, myContext}) {
                                             ),
                                           );
                                         },
-                                        child: Row(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            Text(
-                                              "${listData[index].authorName}",
-                                              style: TextStyle(
-                                                  fontSize: 11,
-                                                  color: Colors.black54),
-                                            ),
-                                            Icon(
-                                              Icons.bookmark_border,
-                                              size: 20,
-                                              color: Colors.black54,
-                                            ),
-                                          ],
+                                        child: Text(
+                                          "${listData[index].authorName}",
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              color: Colors.black54),
                                         ),
                                       )
                                     ],

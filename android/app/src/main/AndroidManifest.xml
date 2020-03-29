@@ -15,7 +15,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="Covid-19"
-        android:icon="@drawable/covid">
+        android:icon="@drawable/corona">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

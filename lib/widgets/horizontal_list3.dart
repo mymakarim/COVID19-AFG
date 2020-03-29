@@ -4,7 +4,7 @@ import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/single/single_page2.dart';
 
-Widget horizontalList3({List<User> listData, String title, myContext}) {
+Widget horizontalList3({List<User> listData, String title, myContext, catId}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -17,9 +17,9 @@ Widget horizontalList3({List<User> listData, String title, myContext}) {
             MaterialPageRoute(
               builder: (context) {
                 return ArchivePage(
-                  title: "آرشیف - پیشگیری",
+                  title: "آرشیف",
                   type: "category",
-                  value: 8,
+                  value: catId,
                   limit: 10,
                   offset: 0,
                 );

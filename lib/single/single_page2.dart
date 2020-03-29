@@ -173,7 +173,7 @@ class _SinglePage2State extends State<SinglePage2> {
                   ),
         (listDataSingle.length > 0)?
         ListTile(
-          contentPadding: EdgeInsets.only(right: 25),
+          contentPadding: EdgeInsets.symmetric(horizontal: 25),
                     onTap: () {},
                     title: Text(
                       widget.author,

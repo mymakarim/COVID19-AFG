@@ -7,6 +7,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/covid" />
+            android:src="@drawable/corona" />
     </item>
 </layer-list>
