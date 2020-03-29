@@ -4,7 +4,7 @@ import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/single/single_page2.dart';
 
-Widget horizontalPost2({List<User> listData, String title, mycontext}) {
+Widget horizontalPost2({List<User> listData, String title, myContext}) {
   return Column(
     children: <Widget>[
       Expanded(
@@ -16,13 +16,13 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                 ? GestureDetector(
               onTap: () {
                 Navigator.push(
-                  mycontext,
+                  myContext,
                   MaterialPageRoute(
                     builder: (context) {
                       return ArchivePage(
                         title: title,
                         type: "category",
-                        value: listData[0].cat_id,
+                        value: listData[0].catId,
                         limit: 10,
                         offset: 0,
                       );
@@ -85,8 +85,8 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                                   textDirection: TextDirection.rtl,
                                   child: SinglePage2(
                                       id: listData[index].id,
-                                      author: listData[index].author_name,
-                                      title: listData[index].post_title,
+                                      author: listData[index].authorName,
+                                      title: listData[index].postTitle,
                                       image: listData[index].image),
                                 );
                               },
@@ -101,7 +101,7 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                                 padding: EdgeInsets.symmetric(horizontal: 0),
                                 child: ListTile(
                                   title: Text(
-                                    "${listData[index].post_title}",
+                                    "${listData[index].postTitle}",
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w700),
@@ -121,7 +121,7 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                                     width: 100,
                                     height: 100,
                                     child: CachedNetworkImage(
-                                      imageUrl: "${listData[index].smallimage}",
+                                      imageUrl: "${listData[index].smallImage}",
                                       imageBuilder: (context, imageProvider) =>
                                           Container(
                                             decoration: BoxDecoration(
@@ -159,9 +159,9 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                               MaterialPageRoute(
                                 builder: (context) {
                                   return ArchivePage(
-                                    title: listData[index].author_name,
+                                    title: listData[index].authorName,
                                     type: "author",
-                                    value: listData[index].author_id,
+                                    value: listData[index].authorId,
                                     limit: 10,
                                   );
                                 },
@@ -169,7 +169,7 @@ Widget horizontalPost2({List<User> listData, String title, mycontext}) {
                             );
                           },
                           child: Text(
-                            "${listData[index].author_name}",
+                            "${listData[index].authorName}",
                             style: TextStyle(
                                 fontSize: 11, fontWeight: FontWeight.w500),
                           ),

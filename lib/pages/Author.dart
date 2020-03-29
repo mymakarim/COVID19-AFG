@@ -7,7 +7,6 @@ import 'package:newschin/single/single_page2.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../database_provider.dart';
-import 'Archive.dart';
 
 class Author extends StatefulWidget {
   final type;
@@ -24,6 +23,7 @@ class Author extends StatefulWidget {
 
 class _AuthorState extends State<Author>
     with AutomaticKeepAliveClientMixin<Author> {
+
   DatabaseProvider dbProvider = DatabaseProvider();
   ApiProvider apiProvider = ApiProvider();
 
@@ -35,7 +35,6 @@ class _AuthorState extends State<Author>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getSqliteData();
     getUsers(false);
@@ -172,8 +171,8 @@ class _AuthorState extends State<Author>
                                   textDirection: TextDirection.rtl,
                                   child: SinglePage2(
                                       id: listData[index].id,
-                                      author: listData[index].author_name,
-                                      title: listData[index].post_title,
+                                      author: listData[index].authorName,
+                                      title: listData[index].postTitle,
                                       image: listData[index].image));
                             },
                           ),
@@ -203,7 +202,7 @@ class _AuthorState extends State<Author>
                                   MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Text(
-                                      "${listData[index].post_title}",
+                                      "${listData[index].postTitle}",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
@@ -214,7 +213,7 @@ class _AuthorState extends State<Author>
                                     ListTile(
                                       contentPadding: EdgeInsets.zero,
                                       title: Text(
-                                        "${listData[index].author_name}",
+                                        "${listData[index].authorName}",
                                         style: TextStyle(
                                           color: Colors.white70,
                                           fontSize: 11,
@@ -246,8 +245,8 @@ class _AuthorState extends State<Author>
                                 textDirection: TextDirection.rtl,
                                 child: SinglePage2(
                                     id: listData[index].id,
-                                    author: listData[index].author_name,
-                                    title: listData[index].post_title,
+                                    author: listData[index].authorName,
+                                    title: listData[index].postTitle,
                                     image: listData[index].image));
                           },
                         ),
@@ -300,7 +299,7 @@ class _AuthorState extends State<Author>
                               CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  "${listData[index].post_title}",
+                                  "${listData[index].postTitle}",
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700),
@@ -308,7 +307,7 @@ class _AuthorState extends State<Author>
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                  "${listData[index].post_content}",
+                                  "${listData[index].postContent}",
                                   style: TextStyle(
                                     fontSize: 11,
                                   ),
@@ -319,7 +318,7 @@ class _AuthorState extends State<Author>
                                   height: 15,
                                 ),
                                 Text(
-                                  "${listData[index].author_name}",
+                                  "${listData[index].authorName}",
                                   style: TextStyle(
                                       fontSize: 11,
                                       color: Colors.black54),
@@ -339,6 +338,7 @@ class _AuthorState extends State<Author>
             return Divider();
           },
         ));
+
   }
 
   @override

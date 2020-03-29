@@ -1,21 +1,15 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/api_provider.dart';
 import 'package:newschin/helper.dart';
-import 'package:newschin/model/user.dart';
-import 'package:newschin/single/single_page2.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import '../database_provider.dart';
-import 'Archive.dart';
 
 class Comment extends StatefulWidget {
   @override
   _CommentState createState() => _CommentState();
 }
 
-class _CommentState extends State<Comment> {
+class _CommentState extends State<Comment>
+    with AutomaticKeepAliveClientMixin<Comment> {
   ApiProvider apiProvider = ApiProvider();
 
   final _fbKey = GlobalKey<FormState>();
@@ -65,7 +59,7 @@ class _CommentState extends State<Comment> {
                   Helper().yahyaTextField(
                     formData: _formData,
                     columnName: "name",
-                    lableText: "اسم شما",
+                    labelText: "اسم شما",
                     validate: "notNull",
                   ),
                   Helper().yahyaTextArea(

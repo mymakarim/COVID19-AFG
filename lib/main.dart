@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
             return supportedLocale;
           }
         }
+        return null;
       },
       home: Directionality(
           textDirection: TextDirection.rtl,
@@ -78,22 +79,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 
 //  end yahya
-
-  void _handleSubmission(String text) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return ArchivePage(
-            title: text,
-            type: "search",
-            value: text,
-            limit: 10,
-          );
-        },
-      ),
-    );
-  }
 
   @override
   void initState() {

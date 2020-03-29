@@ -4,7 +4,7 @@ import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/single/single_page2.dart';
 
-Widget horizontalList3({List<User> listData, String title, mycontext}) {
+Widget horizontalList3({List<User> listData, String title, myContext}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -13,7 +13,7 @@ Widget horizontalList3({List<User> listData, String title, mycontext}) {
           ? GestureDetector(
         onTap: () {
           Navigator.push(
-            mycontext,
+            myContext,
             MaterialPageRoute(
               builder: (context) {
                 return ArchivePage(
@@ -107,8 +107,8 @@ Widget horizontalList3({List<User> listData, String title, mycontext}) {
                                       textDirection: TextDirection.rtl,
                                       child: SinglePage2(
                                           id: listData[index].id,
-                                          author: listData[index].author_name,
-                                          title: listData[index].post_title,
+                                          author: listData[index].authorName,
+                                          title: listData[index].postTitle,
                                           image: listData[index].image),
                                     );
                                   },
@@ -169,8 +169,8 @@ Widget horizontalList3({List<User> listData, String title, mycontext}) {
                                           child: SinglePage2(
                                               id: listData[index].id,
                                               author:
-                                              listData[index].author_name,
-                                              title: listData[index].post_title,
+                                              listData[index].authorName,
+                                              title: listData[index].postTitle,
                                               image: listData[index].image),
                                         );
                                       },
@@ -180,7 +180,7 @@ Widget horizontalList3({List<User> listData, String title, mycontext}) {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8),
                                   child: Text(
-                                    "${listData[index].post_title}",
+                                    "${listData[index].postTitle}",
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,
@@ -194,7 +194,7 @@ Widget horizontalList3({List<User> listData, String title, mycontext}) {
                                 padding: const EdgeInsets.only(
                                     top: 4, right: 12, bottom: 8),
                                 child: Text(
-                                  "${listData[index].author_name}",
+                                  "${listData[index].authorName}",
                                   style: TextStyle(
                                       fontSize: 11, color: Colors.grey),
                                 ),

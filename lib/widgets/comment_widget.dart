@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../helper.dart';
 
-Widget horizonalList({List<User> listData, String title, mycontext}) {
+Widget horizontalList({List<User> listData, String title, myContext}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +40,7 @@ Widget horizonalList({List<User> listData, String title, mycontext}) {
                 ),
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(mycontext, MaterialPageRoute(builder: (context) {
+                    Navigator.push(myContext, MaterialPageRoute(builder: (context) {
                       return Comment();
                     }));
                   },
@@ -93,7 +93,7 @@ Widget horizonalList({List<User> listData, String title, mycontext}) {
               title: Row(
                 children: <Widget>[
                   Text(
-                    " ${listData[index].author_name}",
+                    " ${listData[index].authorName}",
                     style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w700
@@ -102,7 +102,7 @@ Widget horizonalList({List<User> listData, String title, mycontext}) {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    " ${listData[index].post_title}",
+                    " ${listData[index].postTitle}",
                     style: TextStyle(
                       fontSize: 11,
                     ),
@@ -113,7 +113,7 @@ Widget horizonalList({List<User> listData, String title, mycontext}) {
               ),
               subtitle: Html(
                 data: """
-                            ${listData[index].post_content}
+                            ${listData[index].postContent}
             """,
                 //Optional parameters:
                 padding: EdgeInsets.all(8.0),

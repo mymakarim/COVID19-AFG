@@ -27,7 +27,7 @@ class Helper {
   }
 
   Widget yahyaTextField({
-    lableText,
+    labelText,
     columnName,
     formData,
     validate,
@@ -37,7 +37,7 @@ class Helper {
       child: TextFormField(
 //        onChanged: (String value) {
         onSaved: (String value) {
-          formData['${columnName}'] = value;
+          formData['$columnName'] = value;
         },
         validator: (value) {
           if (validate == 'notNull') {
@@ -63,8 +63,8 @@ class Helper {
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
-          labelText: "${lableText}",
-          hintText: "${lableText}",
+          labelText: "$labelText",
+          hintText: "$labelText",
           contentPadding: EdgeInsets.all(20),
           alignLabelWithHint: true,
           border: new OutlineInputBorder(
@@ -83,7 +83,7 @@ class Helper {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         onSaved: (String value) {
-          formData['${columnName}'] = value;
+          formData['$columnName'] = value;
         },
         maxLines: 3,
         validator: (value) {
@@ -108,8 +108,8 @@ class Helper {
         decoration: InputDecoration(
           labelStyle: TextStyle(
               fontWeight: FontWeight.w500, fontSize: 14),
-          labelText: "${labelText}",
-          hintText: "${labelText}",
+          labelText: "$labelText",
+          hintText: "$labelText",
           contentPadding: EdgeInsets.all(20),
           alignLabelWithHint: true,
           border: new OutlineInputBorder(

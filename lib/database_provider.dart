@@ -1,11 +1,9 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
 import 'model/menu.dart';
 import 'model/user.dart';
 
 class DatabaseProvider {
-  String _path;
 
   final Future<Database> database = openDatabase(
     // Set the path to the database.
@@ -71,13 +69,13 @@ class DatabaseProvider {
     return List.generate(maps.length, (i) {
       return User(
           id: maps[i]['id'],
-          cat_id: value,
-          author_id: maps[i]['author_id'],
-          author_name: maps[i]['author_name'],
+          catId: value,
+          authorId: maps[i]['author_id'],
+          authorName: maps[i]['author_name'],
           date: maps[i]['post_date'],
-          post_title: maps[i]['post_title'],
+          postTitle: maps[i]['post_title'],
           url: maps[i]['url'],
-          smallimage: maps[i]['smallimage'],
+          smallImage: maps[i]['smallimage'],
           image: maps[i]['image']);
     });
   }
@@ -94,15 +92,15 @@ class DatabaseProvider {
       print("POSTCONTENTFROMDB: ${maps[i]['post_content']}");
       return User(
           id: maps[i]['id'],
-          cat_id: maps[i]['cat_id'],
-          author_id: maps[i]['author_id'],
-          author_name: maps[i]['author_name'],
+          catId: maps[i]['cat_id'],
+          authorId: maps[i]['author_id'],
+          authorName: maps[i]['author_name'],
           date: maps[i]['post_date'],
-          post_title: maps[i]['post_title'],
+          postTitle: maps[i]['post_title'],
           image: maps[i]['image'],
-          cat_name: maps[i]['cat_name'],
+          catName: maps[i]['cat_name'],
           isBookmarked: maps[i]['isBookmarked'],
-          post_content: maps[i]['post_content']);
+          postContent: maps[i]['post_content']);
     });
   }
 
@@ -118,21 +116,21 @@ class DatabaseProvider {
     return List.generate(maps.length, (i) {
       return User(
           id: maps[i]['id'],
-          cat_id: maps[i]['cat_id'],
-          author_id: maps[i]['author_id'],
-          author_name: maps[i]['author_name'],
+          catId: maps[i]['cat_id'],
+          authorId: maps[i]['author_id'],
+          authorName: maps[i]['author_name'],
           date: maps[i]['post_date'],
-          post_title: maps[i]['post_title'],
+          postTitle: maps[i]['post_title'],
           image: maps[i]['image'],
-          cat_name: maps[i]['cat_name'],
+          catName: maps[i]['cat_name'],
           isBookmarked: maps[i]['isBookmarked'],
-          post_content: maps[i]['post_content']);
+          postContent: maps[i]['post_content']);
     });
   }
 
   Future<void> insertNews({String table, User news}) async {
     final Database db = await database;
-    int data = await db.insert(
+    await db.insert(
       '$table',
       news.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
@@ -141,7 +139,7 @@ class DatabaseProvider {
 
   Future<void> insertMenu({Entry menu}) async {
     final Database db = await database;
-    var data = await db.rawQuery(
+    await db.rawQuery(
         "REPLACE INTO menu (title,hasChild) VALUES ('${menu.title}', 0)");
   }
 

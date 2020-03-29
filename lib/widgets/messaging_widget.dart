@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,14 +16,14 @@ class FirebaseNotifications {
   }
 
   void fcmSubscribe() {
-    firebaseCloudMessaging_Listeners();
+    firebaseCloudMessagingListeners();
   }
 
   void fcmUnSubscribe() {
     _firebaseMessaging.unsubscribeFromTopic('global');
   }
 
-  void firebaseCloudMessaging_Listeners() {
+  void firebaseCloudMessagingListeners() {
 //    if (Platform.isIOS) iOS_Permission();
 
     _firebaseMessaging.getToken().then((token) {
@@ -35,7 +34,7 @@ class FirebaseNotifications {
     _firebaseMessaging.configure(
       // onBackgroundMessage: Platform.isIOS ? null : myBackgroundMessageHandler,
       onMessage: (Map<String, dynamic> message) async {
-        print('on message ${message}');
+        print('on message $message');
 
         if (Platform.isIOS) {
           print('notification on [IOS]');
@@ -67,7 +66,7 @@ class FirebaseNotifications {
 //        await _showBigPictureNotification2(_post);
       },
       onResume: (Map<String, dynamic> message) async {
-        print('on onResume ${message}');
+        print('on onResume $message');
 
         if (Platform.isIOS) {
           print('notification on [IOS]');

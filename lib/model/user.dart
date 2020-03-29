@@ -1,45 +1,45 @@
 class User {
   final int id;
-  final String post_title;
-  final int author_id;
-  final String author_name;
-  final post_content;
-  final String smallimage;
+  final String postTitle;
+  final int authorId;
+  final String authorName;
+  final postContent;
+  final String smallImage;
   final String image;
   final String url;
   final String date;
-  final int cat_id;
-  final String cat_name;
+  final int catId;
+  final String catName;
   final int isBookmarked;
 
   User(
-      {this.author_name,
-      this.smallimage,
+      {this.authorName,
+      this.smallImage,
       this.id,
-      this.post_title,
-      this.author_id,
-      this.post_content,
+      this.postTitle,
+      this.authorId,
+      this.postContent,
       this.image,
       this.url,
       this.date,
-        this.cat_id,
+        this.catId,
         this.isBookmarked,
-        this.cat_name
+        this.catName
       });
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'post_title': post_title,
-      'author_name': author_name,
-      'author_id': author_id,
+      'post_title': postTitle,
+      'author_name': authorName,
+      'author_id': authorId,
       'date': date,
-      'cat_id': cat_id,
-      'smallimage': smallimage,
+      'cat_id': catId,
+      'smallimage': smallImage,
       'image': image,
-      'post_content': "$post_content",
+      'post_content': "$postContent",
       'isBookmarked': isBookmarked,
-      'cat_name': cat_name
+      'cat_name': catName
     };
   }
 
@@ -49,17 +49,17 @@ class User {
     }
     return User(
         id: item['id'],
-        cat_id: item['categories'][0]['cid'],
-        post_title: item['post_title'],
+        catId: item['categories'][0]['cid'],
+        postTitle: item['post_title'],
         date: item['post_date'],
-        author_id: item['post_author'],
-        author_name: item['author_name'],
+        authorId: item['post_author'],
+        authorName: item['author_name'],
         image: item['image'][0],
-        smallimage: item['image_small'],
+        smallImage: item['image_small'],
         url: item['post_link'],
-        post_content: item['post_content'],
+        postContent: item['post_content'],
         isBookmarked: isBookmarked,
-        cat_name: item['categories'][0]['title']
+        catName: item['categories'][0]['title']
     );
   }
 }

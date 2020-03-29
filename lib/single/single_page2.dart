@@ -34,10 +34,10 @@ class _SinglePage2State extends State<SinglePage2> {
 
   List<User> listDataSingle = [];
   List<User> listData = [];
-  String _share_text = "با دوستان تان شریک سازید!";
+  String _shareText = "با دوستان تان شریک سازید!";
 
 //  yahya
-  bool _showAppbar = true; //this is to show app bar
+  bool _showAppbar = true;
   ScrollController _scrollBottomBarController =
       new ScrollController(); // set controller on scrolling
   bool isScrollingDown = false;
@@ -217,7 +217,7 @@ class _SinglePage2State extends State<SinglePage2> {
                     child: (listDataSingle.length > 0)
                         ? Html(
                             data: """
-                            ${listDataSingle[0].post_content}
+                            ${listDataSingle[0].postContent}
             """,
                             //Optional parameters:
                             padding: EdgeInsets.all(8.0),
@@ -261,14 +261,14 @@ class _SinglePage2State extends State<SinglePage2> {
                       color: Color(0xFFd73e4d),
                       onPressed: () {
                         setState() {
-                          _share_text = "loading...";
+                          _shareText = "loading...";
                         }
 
                         Share.share('${listDataSingle[0].url}',
                             subject: 'NewsChin.com');
                       },
                       child: Text(
-                        _share_text,
+                        _shareText,
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -278,7 +278,7 @@ class _SinglePage2State extends State<SinglePage2> {
                     child: horizontalPost(
                         listData: listData,
                         title: "مطالب مرتبط",
-                        mycontext: context),
+                        myContext: context),
                   ),
                 ],
               ),

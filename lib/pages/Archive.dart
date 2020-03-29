@@ -174,8 +174,8 @@ class _ArchivePageState extends State<ArchivePage> {
                                       textDirection: TextDirection.rtl,
                                       child: SinglePage2(
                                           id: listData[index].id,
-                                          author: listData[index].author_name,
-                                          title: listData[index].post_title,
+                                          author: listData[index].authorName,
+                                          title: listData[index].postTitle,
                                           image: listData[index].image));
                                 },
                               ),
@@ -205,7 +205,7 @@ class _ArchivePageState extends State<ArchivePage> {
                                       MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         Text(
-                                          "${listData[index].post_title}",
+                                          "${listData[index].postTitle}",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16,
@@ -216,7 +216,7 @@ class _ArchivePageState extends State<ArchivePage> {
                                         ListTile(
                                           contentPadding: EdgeInsets.zero,
                                           title: Text(
-                                            "${listData[index].author_name}",
+                                            "${listData[index].authorName}",
                                             style: TextStyle(
                                               color: Colors.white70,
                                               fontSize: 11,
@@ -248,8 +248,8 @@ class _ArchivePageState extends State<ArchivePage> {
                                     textDirection: TextDirection.rtl,
                                     child: SinglePage2(
                                         id: listData[index].id,
-                                        author: listData[index].author_name,
-                                        title: listData[index].post_title,
+                                        author: listData[index].authorName,
+                                        title: listData[index].postTitle,
                                         image: listData[index].image));
                               },
                             ),
@@ -302,7 +302,7 @@ class _ArchivePageState extends State<ArchivePage> {
                                   CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Text(
-                                      "${listData[index].post_title}",
+                                      "${listData[index].postTitle}",
                                       style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w700),
@@ -310,7 +310,7 @@ class _ArchivePageState extends State<ArchivePage> {
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                     Text(
-                                      "${listData[index].post_content}",
+                                      "${listData[index].postContent}",
                                       style: TextStyle(
                                         fontSize: 11,
                                       ),
@@ -321,7 +321,7 @@ class _ArchivePageState extends State<ArchivePage> {
                                       height: 15,
                                     ),
                                     Text(
-                                      "${listData[index].author_name}",
+                                      "${listData[index].authorName}",
                                       style: TextStyle(
                                           fontSize: 11,
                                           color: Colors.black54),

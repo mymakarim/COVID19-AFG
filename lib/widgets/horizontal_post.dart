@@ -4,7 +4,7 @@ import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/single/single_page2.dart';
 
-Widget horizontalPost({List<User> listData, String title, mycontext}) {
+Widget horizontalPost({List<User> listData, String title, myContext}) {
   return Column(
     children: <Widget>[
       Expanded(
@@ -16,7 +16,7 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                 ? GestureDetector(
               onTap: () {
                 Navigator.push(
-                  mycontext,
+                  myContext,
                   MaterialPageRoute(
                     builder: (context) {
                       return ArchivePage(
@@ -88,8 +88,8 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                                       textDirection: TextDirection.rtl,
                                       child: SinglePage2(
                                           id: listData[index].id,
-                                          author: listData[index].author_name,
-                                          title: listData[index].post_title,
+                                          author: listData[index].authorName,
+                                          title: listData[index].postTitle,
                                           image: listData[index].image),
                                     ),
                                   );
@@ -148,7 +148,7 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                                     CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        "${listData[index].post_title}",
+                                        "${listData[index].postTitle}",
                                         style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w700),
@@ -156,7 +156,7 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       Text(
-                                        "${listData[index].post_content}",
+                                        "${listData[index].postContent}",
                                         style: TextStyle(
                                           fontSize: 11,),
                                         maxLines: 1,
@@ -173,10 +173,10 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                                               builder: (context) {
                                                 return ArchivePage(
                                                   title: listData[index]
-                                                      .author_name,
+                                                      .authorName,
                                                   type: "author",
                                                   value: listData[index]
-                                                      .author_id,
+                                                      .authorId,
                                                   limit: 10,
                                                 );
                                               },
@@ -190,7 +190,7 @@ Widget horizontalPost({List<User> listData, String title, mycontext}) {
                                           MainAxisAlignment.spaceBetween,
                                           children: <Widget>[
                                             Text(
-                                              "${listData[index].author_name}",
+                                              "${listData[index].authorName}",
                                               style: TextStyle(
                                                   fontSize: 11,
                                                   color: Colors.black54),

@@ -148,31 +148,31 @@ class _HomePageState extends State<HomePage>
 //              I manually changed the cid to 6 for corona news
 //              ===================================================
                 child: horizontalList3(
-                    listData: listData, title: "کرونا نیوز", mycontext: context),
+                    listData: listData, title: "کرونا نیوز", myContext: context),
               );
             }else if (index == 2) {
               return SizedBox(
                 height: 360,
                 child: ads(
-                    listData: listData4, title: "تبلیغات", mycontext: context),
+                    listData: listData4, title: "تبلیغات", myContext: context),
               );
             }else if (index == 3) {
               return SizedBox(
                 height: 470,
-                child: horizonalList(
-                    listData: listData3, title: "یادداشت شما", mycontext: context),
+                child: horizontalList(
+                    listData: listData3, title: "یادداشت شما", myContext: context),
               );
             }else if (index == 4) {
               return SizedBox(
                 height: 355,
                 child: horizontalList3(
-                    listData: listData2, title: "پیشگیری", mycontext: context),
+                    listData: listData2, title: "پیشگیری", myContext: context),
               );
             }else if (index == 5) {
               return SizedBox(
                 height: 360,
                 child: ads(
-                    listData: listData4, title: "تبلیغات", mycontext: context),
+                    listData: listData4, title: "تبلیغات", myContext: context),
               );
             }
             return null;

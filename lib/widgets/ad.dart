@@ -1,13 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/model/user.dart';
-import 'package:newschin/pages/Archive.dart';
-import 'package:newschin/single/single_page2.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:url_launcher/url_launcher.dart';
 
-Widget ads({List<User> listData, String title, mycontext}) {
+Widget ads({List<User> listData, String title, myContext}) {
   return Column(
     children: <Widget>[
       Expanded(
@@ -50,7 +47,7 @@ Widget ads({List<User> listData, String title, mycontext}) {
               child: (listData.length > 0)
                   ? Html(
                 data: """
-                            ${listData[0].post_content}
+                            ${listData[0].postContent}
             """,
                 //Optional parameters:
                 padding: EdgeInsets.all(8.0),

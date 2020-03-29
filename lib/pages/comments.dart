@@ -1,14 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/api_provider.dart';
 import 'package:newschin/helper.dart';
 import 'package:newschin/model/user.dart';
-import 'package:newschin/single/single_page2.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../database_provider.dart';
-import 'Archive.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:url_launcher/url_launcher.dart';
@@ -132,7 +129,7 @@ class _CommentsState extends State<Comments>
               title: Row(
                 children: <Widget>[
                   Text(
-                    " ${listData[index].author_name}",
+                    " ${listData[index].authorName}",
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w700
@@ -141,7 +138,7 @@ class _CommentsState extends State<Comments>
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    " ${listData[index].post_title}",
+                    " ${listData[index].postTitle}",
                     style: TextStyle(
                       fontSize: 11,
                     ),
@@ -152,7 +149,7 @@ class _CommentsState extends State<Comments>
               ),
               subtitle: Html(
                 data: """
-                            ${listData[index].post_content}
+                            ${listData[index].postContent}
             """,
                 //Optional parameters:
                 padding: EdgeInsets.all(8.0),

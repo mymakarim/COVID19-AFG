@@ -12,13 +12,13 @@ class ApiProvider {
   DatabaseProvider db = DatabaseProvider();
 
   String yahyaTimeAgo(dynamic time) {
-    var str_timeago;
+    var strTimeago;
     var d = DateTime.parse(time);
     PersianDate persianDate =
     PersianDate(format: 'yyyy-mm-dd hh:nn:ss SSS', gregorian: d.toString());
-    str_timeago =
+    strTimeago =
         persianDate.day.toString() + " " + persianDate.monthname.toString();
-    return str_timeago;
+    return strTimeago;
     // print('faiz: ${d.millisecondsSinceEpoch}');
     // 86400 d.millisecondsSinceEpoch < 8640000000000000
 //    if (d.millisecondsSinceEpoch > DateTime.now().subtract(new Duration(hours: 23)).millisecondsSinceEpoch) {
@@ -61,23 +61,20 @@ class ApiProvider {
         listUsers.add(
           new User(
               id: item['id'],
-              post_title: item['post_excerpt'],
-              author_name: newTitle,
+              postTitle: item['post_excerpt'],
+              authorName: newTitle,
               image: item['image'][0],
-              author_id: item['post_author'],
+              authorId: item['post_author'],
               date: yahyaTimeAgo(item['post_date']),
-              cat_id: item['categories'][0]['cid'],
-              post_content: item['post_content']),
+              catId: item['categories'][0]['cid'],
+              postContent: item['post_content']),
         );
 //        insert into sqlite database
         await db.insertNews(table: 'news', news: User.fromMap(item));
       });
       return listUsers;
-    }else{
-      print("-------===========-----------");
-      print("NOT 200");
-      print("-------===========-----------");
     }
+    return listUsers;
   }
 
 
@@ -105,23 +102,20 @@ class ApiProvider {
         listUsers.add(
           new User(
               id: item['id'],
-              post_title: newTitle,
-              author_name: item['author_name'],
+              postTitle: newTitle,
+              authorName: item['author_name'],
               image: item['image'][0],
-              author_id: item['post_author'],
+              authorId: item['post_author'],
               date: yahyaTimeAgo(item['post_date']),
-              cat_id: item['categories'][0]['cid'],
-              post_content: item['post_excerpt']),
+              catId: item['categories'][0]['cid'],
+              postContent: item['post_excerpt']),
         );
 //        insert into sqlite database
         await db.insertNews(table: 'news', news: User.fromMap(item));
       });
       return listUsers;
-    }else{
-      print("-------===========-----------");
-      print("NOT 200");
-      print("-------===========-----------");
     }
+    return listUsers;
   }
 
   Future<void> bookmark({id}) async {
@@ -136,19 +130,19 @@ class ApiProvider {
             table: 'bookmarks',
             news: User(
                 id: item['id'],
-                post_title: item['post_title']
+                postTitle: item['post_title']
                     .replaceAll("&#8217;", "’")
                     .replaceAll("&#8220;", "“")
                     .replaceAll("&#8221;", "”")
                     .replaceAll("&#038;", "&")
                     .replaceAll("&#8216;", "	‘"),
-                author_name: item['author_name'],
-                author_id: item['post_author'],
-                post_content: item['post_content'],
+                authorName: item['author_name'],
+                authorId: item['post_author'],
+                postContent: item['post_content'],
                 image: item['image'][0],
                 url: item['post_link'],
                 date: yahyaTimeAgo(item['post_date']),
-                cat_name: item['categories'][0]['title']),
+                catName: item['categories'][0]['title']),
           );
         });
       }
@@ -158,7 +152,7 @@ class ApiProvider {
 //    await db.insertNews(news: User.fromMap(single, isBookmarked: 1));
   }
 
-  Future<List<User>> getUser({id, title, image, author, cat_id}) async {
+  Future<List<User>> getUser({id, title, image, author, catId}) async {
     try {
       var response =
       await http.get('http://newschin.com/app.php?post_id=$id');
@@ -170,23 +164,24 @@ class ApiProvider {
           listUser.add(
             new User(
                 id: item['id'],
-                post_title: item['post_title']
+                postTitle: item['post_title']
                     .replaceAll("&#8217;", "’")
                     .replaceAll("&#8220;", "“")
                     .replaceAll("&#8221;", "”")
                     .replaceAll("&#038;", "&")
                     .replaceAll("&#8216;", "	‘"),
-                author_name: item['author_name'],
-                author_id: item['post_author'],
-                post_content: item['post_content'],
+                authorName: item['author_name'],
+                authorId: item['post_author'],
+                postContent: item['post_content'],
                 image: item['image'][0],
                 url: item['post_link'],
                 date: yahyaTimeAgo(item['post_date']),
-                cat_name: item['categories'][0]['title']),
+                catName: item['categories'][0]['title']),
           );
         });
         return listUser;
       }
+      return listUser;
     } catch (e) {
       throw Exception(e);
     }

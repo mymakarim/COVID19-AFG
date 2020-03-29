@@ -104,9 +104,9 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                         child: SinglePage2(
                                             id: listData[index].id,
                                             author: listData[index]
-                                                .author_name,
+                                                .authorName,
                                             title: listData[index]
-                                                .post_title,
+                                                .postTitle,
                                             image: listData[index].image),
                                       );
                                     },
@@ -170,9 +170,9 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                             child: SinglePage2(
                                                 id: listData[index].id,
                                                 author: listData[index]
-                                                    .author_name,
+                                                    .authorName,
                                                 title: listData[index]
-                                                    .post_title,
+                                                    .postTitle,
                                                 image: listData[index].image),
                                           );
                                         },
@@ -182,7 +182,7 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8),
                                     child: Text(
-                                      "${listData[index].post_title}",
+                                      "${listData[index].postTitle}",
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w700,
@@ -203,9 +203,9 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                           builder: (context) {
                                             return ArchivePage(
                                               title: listData[index]
-                                                  .author_name,
+                                                  .authorName,
                                               type: "author",
-                                              value: listData[index].author_id,
+                                              value: listData[index].authorId,
                                               limit: 10,
                                             );
                                           },
@@ -214,7 +214,7 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                     },
                                     child: Text(
                                       "${listData[index]
-                                          .author_name} | ${listData[index]
+                                          .authorName} | ${listData[index]
                                           .date}",
                                       style: TextStyle(
                                         fontSize: 11,
