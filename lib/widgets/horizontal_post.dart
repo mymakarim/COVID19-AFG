@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/Archive.dart';
-import 'package:newschin/single/single_page.dart';
 import 'package:newschin/single/single_page2.dart';
 
 Widget horizontalPost({List<User> listData, String title, mycontext}) {

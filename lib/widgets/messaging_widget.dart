@@ -3,11 +3,7 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:newschin/single/single_page.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:http/http.dart' as http;
-import '../main.dart';
+import 'package:newschin/single/single_page2.dart';
 
 bool letGoToSingle = false;
 
@@ -95,7 +91,7 @@ class FirebaseNotifications {
           _context,
           MaterialPageRoute(
             builder: (context) {
-              return SinglePage(
+              return SinglePage2(
                 id: int.parse('${message['data']['post_id']}'),
                 author: "Freshta Farhang",
                 title: "${message['data']['title']}",
@@ -133,7 +129,7 @@ class FirebaseNotifications {
           _context,
           MaterialPageRoute(
             builder: (context) {
-              return SinglePage(
+              return SinglePage2(
                 id: int.parse('${message['data']['post_id']}'),
                 author: "Freshta Farhang",
                 title: "${message['data']['title']}",

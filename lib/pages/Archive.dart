@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/model/menu.dart';
 import 'package:newschin/model/user.dart';
-import 'package:newschin/single/single_page.dart';
 import 'package:newschin/single/single_page2.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -37,7 +36,6 @@ class _ArchivePageState extends State<ArchivePage> {
   List<Entry> listCats = [];
   bool isLoading = false;
   int offset = 0;
-  ScrollController _scrollController = new ScrollController();
 
   @override
   void initState() {

@@ -4,12 +4,8 @@ import 'package:newschin/api_provider.dart';
 import 'package:newschin/model/user.dart';
 import 'package:newschin/widgets/ad.dart';
 import 'package:newschin/widgets/big_post.dart';
-import 'package:newschin/widgets/grid_post.dart';
-import 'package:newschin/widgets/horizontal_list2.dart';
 import 'package:newschin/widgets/horizontal_list3.dart';
-import 'package:newschin/widgets/horizontal_post.dart';
 import 'package:newschin/widgets/comment_widget.dart';
-import 'package:newschin/widgets/horizontal_post2.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../database_provider.dart';

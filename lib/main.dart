@@ -7,16 +7,9 @@ import 'package:newschin/pages/Author.dart';
 import 'package:newschin/pages/comment.dart';
 import 'package:newschin/pages/comments.dart';
 import 'package:newschin/pages/homepage.dart';
-import 'package:newschin/pages/homepage10.dart';
-import 'package:newschin/pages/homepage8.dart';
-import 'package:newschin/pages/homepage9.dart';
-
-//herethere
-//import 'package:newschin/widgets/messaging_widget.dart';
 
 import 'api_provider.dart';
 import 'app_localizations.dart';
-import 'database_provider.dart';
 import 'helper.dart';
 
 void main() => runApp(MyApp());

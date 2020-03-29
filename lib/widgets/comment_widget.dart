@@ -1,9 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/model/user.dart';
-import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/pages/comment.dart';
-import 'package:newschin/single/single_page3.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:url_launcher/url_launcher.dart';
