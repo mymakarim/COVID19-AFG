@@ -17,9 +17,9 @@ Widget horizontalList3({List<User> listData, String title, myContext}) {
             MaterialPageRoute(
               builder: (context) {
                 return ArchivePage(
-                  title: "آرشیف - کرونا",
+                  title: "آرشیف - پیشگیری",
                   type: "category",
-                  value: 6,
+                  value: 8,
                   limit: 10,
                   offset: 0,
                 );

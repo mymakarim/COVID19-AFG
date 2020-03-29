@@ -13,7 +13,7 @@ class Helper {
 
 //  Not Important - I included a single author image so i introduced it here
   static final String authorImage =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ9aWaHNVsVasYU08OR35seKVr-cMRfra7Etx7AtyeGEKFAmVIz';
+      'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
 
 //  SvgImage() Function grabs the svg and
 //  Then you can use it anywhere you want

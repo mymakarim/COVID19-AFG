@@ -173,22 +173,8 @@ class _SinglePage2State extends State<SinglePage2> {
                   ),
         (listDataSingle.length > 0)?
         ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return ArchivePage(
-                              title: "آرشیف - کرونا",
-                              type: "category",
-                              value: 6,
-                              limit: 10,
-                              offset: 0,
-                            );
-                          },
-                        ),
-                      );
-                    },
+          contentPadding: EdgeInsets.only(right: 25),
+                    onTap: () {},
                     title: Text(
                       widget.author,
                       style:
@@ -204,7 +190,7 @@ class _SinglePage2State extends State<SinglePage2> {
                         color: Color(0xFFd73e4d),
                       ),
                       child: Text(
-                        "کرونا",
+                        "${listDataSingle[0].catName}",
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 11,

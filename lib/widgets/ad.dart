@@ -64,12 +64,7 @@ Widget ads({List<User> listData, String title, myContext}) {
                   }
                 },
                 onImageTap: (src) async {
-                  var url = "http://codenawis.com";
-                  if (await canLaunch(url)) {
-                    await launch(url);
-                  } else {
-                    throw 'Could not launch $url';
-                  }
+                  print("Clicked image");
                 },
                 customTextAlign: (dom.Node node) {
                   if (node is dom.Element) {

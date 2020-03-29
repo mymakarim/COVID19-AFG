@@ -196,22 +196,7 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                                   padding: const EdgeInsets.only(
                                       top: 4, right: 12, bottom: 8),
                                   child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return ArchivePage(
-                                              title: listData[index]
-                                                  .authorName,
-                                              type: "author",
-                                              value: listData[index].authorId,
-                                              limit: 10,
-                                            );
-                                          },
-                                        ),
-                                      );
-                                    },
+                                    onTap: () {},
                                     child: Text(
                                       "${listData[index]
                                           .authorName} | ${listData[index]
