@@ -7,6 +7,7 @@ import 'package:newschin/pages/Author.dart';
 import 'package:newschin/pages/comment.dart';
 import 'package:newschin/pages/comments.dart';
 import 'package:newschin/pages/homepage.dart';
+import 'package:newschin/widgets/messaging_widget.dart';
 
 import 'api_provider.dart';
 import 'app_localizations.dart';
@@ -68,25 +69,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   TabController _tabController;
 
 //  herethere
-//  FirebaseNotifications _firebaseNotifications;
+  FirebaseNotifications _firebaseNotifications;
 //  herethere
   void subScribeIfNeed() async {
-//    bool value = await PrefService.getBool('notification');
-//    if (value) {
+
     if (true) {
-//      _firebaseNotifications.fcmSubscribe();
+      _firebaseNotifications.fcmSubscribe();
     }
   }
 
 //  end yahya
-
   @override
   void initState() {
     super.initState();
-//    _firebaseNotifications = new FirebaseNotifications();
-//    _firebaseNotifications.setUpFirebase(context);
-//    subScribeIfNeed();
- }
+    _firebaseNotifications = new FirebaseNotifications();
+    _firebaseNotifications.setUpFirebase(context);
+    subScribeIfNeed();
+  }
 
   @override
   void dispose() {
@@ -195,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             labelPadding: EdgeInsets.all(5),
             labelColor: Theme.of(context).primaryColor,
             labelStyle:
-                TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Raleway'),
+            TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Raleway'),
             tabs: [
               Tab(
                 child: Helper.svgImage(svg: Helper.homeSvg),

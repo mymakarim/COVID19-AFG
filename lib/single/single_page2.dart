@@ -171,7 +171,8 @@ class _SinglePage2State extends State<SinglePage2> {
                           height: 1.8),
                     ),
                   ),
-                  ListTile(
+        (listDataSingle.length > 0)?
+        ListTile(
                     onTap: () {
                       Navigator.push(
                         context,
@@ -193,8 +194,8 @@ class _SinglePage2State extends State<SinglePage2> {
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                     ),
-                    subtitle: (listDataSingle.length > 0)? Text("${listDataSingle[0].date}",
-                      style: TextStyle(fontSize: 11),): Text(""),
+                    subtitle: Text("${listDataSingle[0].date}",
+                      style: TextStyle(fontSize: 11),),
                     trailing: Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 25, vertical: 3),
@@ -210,7 +211,7 @@ class _SinglePage2State extends State<SinglePage2> {
                             color: Colors.white),
                       ),
                     ),
-                  ),
+                  ): Text(""),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 10),
