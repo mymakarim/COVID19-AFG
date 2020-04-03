@@ -146,10 +146,9 @@ class _AuthorState extends State<Author>
                               height: 50,
                               width: 50,
                               child: CircularProgressIndicator(
-                                backgroundColor: Colors.grey,
-                                valueColor:
-                                new AlwaysStoppedAnimation<Color>(
-                                    Colors.green),
+                                strokeWidth: 1,
+                                valueColor: new AlwaysStoppedAnimation<Color>(
+                                    Colors.redAccent),
                               ),
                             ),
                           ),

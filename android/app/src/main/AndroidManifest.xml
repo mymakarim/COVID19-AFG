@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Covid-19"
+        android:label="COVID19-AFG"
         android:icon="@drawable/corona">
         <activity
             android:name=".MainActivity"

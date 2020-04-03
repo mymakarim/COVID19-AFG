@@ -1,8 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/model/user.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:html/dom.dart' as dom;
-import 'package:url_launcher/url_launcher.dart';
+import 'package:newschin/single/single_page2.dart';
 
 Widget ads({List<User> listData, String title, myContext}) {
   return Column(
@@ -45,43 +44,81 @@ Widget ads({List<User> listData, String title, myContext}) {
                 : Container(),
             Center(
               child: (listData.length > 0)
-                  ? Html(
-                data: """
-                            ${listData[0].postContent}
-            """,
-                //Optional parameters:
-                padding: EdgeInsets.all(8.0),
-                linkStyle: const TextStyle(
-                  color: Colors.redAccent,
-                  decorationColor: Colors.redAccent,
-                  decoration: TextDecoration.underline,
-                ),
-                onLinkTap: (url) async {
-                  if (await canLaunch(url)) {
-                    await launch(url);
-                  } else {
-                    throw 'Could not launch $url';
-                  }
-                },
-                onImageTap: (src) async {
-                  print("Clicked image");
-                },
-                customTextAlign: (dom.Node node) {
-                  if (node is dom.Element) {
-                    switch (node.localName) {
-                      case "p":
-                        return TextAlign.right;
-                    }
-                  }
-                  return null;
-                },
-              )
+                  ? Container(
+                      color: Colors.black12,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minHeight: 340,
+                            minWidth: MediaQuery.of(myContext).size.width),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              myContext,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return Directionality(
+                                    textDirection: TextDirection.rtl,
+                                    child: SinglePage2(
+                                        id: listData[0].id,
+                                        author: listData[0]
+                                            .authorName,
+                                        title: listData[0]
+                                            .postTitle,
+                                        image: listData[0].image),
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          child: Container(
+                            color: Colors.black12,
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                  minHeight: 320,
+                                  minWidth:
+                                  MediaQuery
+                                      .of(myContext)
+                                      .size
+                                      .width),
+                              child: CachedNetworkImage(
+                                imageUrl:
+                                "${listData[0].image}",
+                                imageBuilder: (context, imageProvider) =>
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: imageProvider,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                placeholder: (context, url) =>
+                                    Center(
+                                      child: SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 1,
+                                          valueColor:
+                                          new AlwaysStoppedAnimation<Color>(
+                                              Colors.redAccent),
+                                        ),
+                                      ),
+                                    ),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.image),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
                   : Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.redAccent,
-                  strokeWidth: 1,
-                ),
-              ),
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.redAccent,
+                        strokeWidth: 1,
+                      ),
+                    ),
             )
           ],
         ),

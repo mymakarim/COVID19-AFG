@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newschin/api_provider.dart';
 import 'package:newschin/helper.dart';
 import 'package:newschin/model/user.dart';
+import 'package:newschin/single/single_page2.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../database_provider.dart';
@@ -112,6 +113,23 @@ class _CommentsState extends State<Comments>
           itemBuilder: (context, index) {
             return ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: SinglePage2(
+                            id: listData[index].id,
+                            author: listData[index].authorName,
+                            title: listData[index].postTitle,
+                            image: listData[index].image),
+                      );
+                    },
+                  ),
+                );
+              },
               leading: Container(
                 height: 50,
                 width: 50,
@@ -120,7 +138,7 @@ class _CommentsState extends State<Comments>
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      Helper.authorImage,
+                        (listData[index].image != '' && listData[index].image != null)? listData[index].image : Helper.authorImage
                     ),
                   ),
                   color: Colors.redAccent,

@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:newschin/api_provider.dart';
 import 'package:newschin/model/user.dart';
-import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/widgets/horizontal_post.dart';
 import 'package:share/share.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:url_launcher/url_launcher.dart';
+//import 'package:firebase_admob/firebase_admob.dart';
+
+
+//const String testDevice = "ca-app-pub-4846272892098875~9858494092";
 
 class SinglePage2 extends StatefulWidget {
   final id;
@@ -56,12 +59,21 @@ class _SinglePage2State extends State<SinglePage2> {
     getUsers();
 //    yahya
     myScroll();
+
+//    FireBaseAdMob
+//  FirebaseAdMob.instance.initialize(
+//    appId: 'ca-app-pub-4846272892098875~9858494092'
+//  );
+//  _bannerAd = createBannerAd()..load()..show();
   }
 
 //  yahya
   @override
   void dispose() {
     _scrollBottomBarController.removeListener(() {});
+
+//    FireBaseAdMob
+//    _bannerAd.dispose();
     super.dispose();
   }
 
@@ -119,6 +131,27 @@ class _SinglePage2State extends State<SinglePage2> {
 //    print(listDataSingle[0].categories.toList()[0].);
   }
 
+
+//  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+////    testDevices: testDevice != null ? <String>[testDevice] : null,
+//    nonPersonalizedAds: true,
+//    keywords: <String>['game', 'corona'],
+//  );
+//
+//  BannerAd _bannerAd;
+//  BannerAd createBannerAd(){
+//      return BannerAd(
+//        adUnitId: 'ca-app-pub-4846272892098875/3249047235',
+//        size: AdSize.banner,
+//        targetingInfo: targetingInfo,
+//        listener: (MobileAdEvent event){
+//          print("BannerAdEvent: $event");
+//        }
+//      );
+//  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,9 +184,9 @@ class _SinglePage2State extends State<SinglePage2> {
                           height: 50,
                           width: 50,
                           child: CircularProgressIndicator(
-                            backgroundColor: Colors.grey,
+                            strokeWidth: 1,
                             valueColor:
-                                new AlwaysStoppedAnimation<Color>(Colors.green),
+                                new AlwaysStoppedAnimation<Color>(Colors.redAccent),
                           ),
                         ),
                       ),
@@ -273,16 +306,6 @@ class _SinglePage2State extends State<SinglePage2> {
                 child: AppBar(
                   backgroundColor: Colors.transparent,
                   elevation: 0,
-                  actions: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.bookmark_border),
-                      onPressed: () {
-                        Share.share('${listDataSingle[0].url}',
-                            subject: 'NewsChin.com');
-                      },
-                      tooltip: 'Share',
-                    ),
-                  ],
                 ),
               )
             ],

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:newschin/model/user.dart';
-import 'package:persian_date/persian_date.dart';
+import 'package:newschin/persian_date.dart';
 
 import 'database_provider.dart';
 
@@ -28,8 +28,8 @@ class ApiProvider {
 //    }
   }
 
-  Future<int> sendComment({String name, String desc, String comment}) async {
-    final response = await http.post("http://newschin.com/yahya_insert_draft.php", body:{"name": name, "comment": comment, "desc": desc});
+  Future<int> sendComment({String name, String desc, String comment, String img}) async {
+    final response = await http.post("http://newschin.com/yahya_insert_draft.php", body:{"name": name, "comment": comment, "desc": desc, "img": img});
     if(response.statusCode == 200){
       return 1;
     }else{

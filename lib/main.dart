@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:newschin/model/dynamic_tab_content.dart';
 import 'package:newschin/model/menu.dart';
-import 'package:newschin/pages/Archive.dart';
 import 'package:newschin/pages/Author.dart';
 import 'package:newschin/pages/comment.dart';
 import 'package:newschin/pages/comments.dart';

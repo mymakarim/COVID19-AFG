@@ -1,7 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newschin/api_provider.dart';
 import 'package:newschin/helper.dart';
+import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore
+import 'package:image_picker/image_picker.dart'; // For Image Picker
+import 'package:path/path.dart' as Path;
 
 class Comment extends StatefulWidget {
   @override
@@ -12,12 +17,17 @@ class _CommentState extends State<Comment>
     with AutomaticKeepAliveClientMixin<Comment> {
   ApiProvider apiProvider = ApiProvider();
 
+  File _image;
+  String _uploadedFileURL;
+  String _uploadFileText = "حالا اپلود کنید";
+
   final _fbKey = GlobalKey<FormState>();
 
   final Map<String, dynamic> _formData = {
     'comment': '',
     'name': '',
     'desc': '',
+    'img': '',
   };
 
   @override
@@ -29,14 +39,17 @@ class _CommentState extends State<Comment>
           onPressed: () {
             if (_fbKey.currentState.validate()) {
               _fbKey.currentState.save();
-              apiProvider.sendComment(
+              apiProvider
+                  .sendComment(
                 name: _formData['name'],
                 comment: _formData['comment'],
                 desc: _formData['desc'],
-              ).then((value){
-                if(value == 1){
+                img: _formData['img'],
+              )
+                  .then((value) {
+                if (value == 1) {
                   Navigator.pop(context);
-                }else{
+                } else {
                   print("Error");
                 }
               });
@@ -56,22 +69,85 @@ class _CommentState extends State<Comment>
               autovalidate: true,
               child: Column(
                 children: <Widget>[
+                  _image == null
+                      ? RaisedButton(
+                          child: Text(
+                            'عکس شما',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: chooseFile,
+                          color: Colors.indigoAccent,
+                        )
+                      : Container(),
+                  _image != null && _uploadedFileURL == null
+                      ? RaisedButton(
+                          child: Text(
+                            '$_uploadFileText',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: uploadFile,
+                          color: Colors.redAccent,
+                        )
+                      : Container(),
+//                      _image != null
+//                          ? RaisedButton(
+//                        child: Text('Clear Selection'),
+//                        onPressed: clearSelection,
+//                      )
+//                          : Container(),
+                  _uploadedFileURL != null ? Text('Uploaded Image') : Text(""),
+                  _uploadedFileURL != null
+                      ? ConstrainedBox(
+                          constraints: BoxConstraints(
+                              minHeight: 100,
+                              minWidth: MediaQuery.of(context).size.width),
+                          child: CachedNetworkImage(
+                            imageUrl: _uploadedFileURL,
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            placeholder: (context, url) => Center(
+                              child: SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 1,
+                                  valueColor: new AlwaysStoppedAnimation<Color>(
+                                      Colors.redAccent),
+                                ),
+                              ),
+                            ),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.image),
+                          ),
+                        )
+                      : Container(
+                          child: Text(
+                              "نوت: تنها زمانیکه عکس شما نمایان شد پیام تان را ارسال کنید"),
+                        ),
                   Helper().yahyaTextField(
                     formData: _formData,
                     columnName: "name",
                     labelText: "اسم شما",
                     validate: "notNull",
                   ),
-                  Helper().yahyaTextArea(
-                    columnName: "desc",
+                  Helper().yahyaTextField(
                     formData: _formData,
-                    labelText: "درمورد شما",
+                    columnName: "desc",
+                    labelText: "درباره شما",
                   ),
                   Helper().yahyaTextArea(
-                    labelText: "یادداشت شما",
-                    formData: _formData,
-                    columnName: "comment"
-                  )
+                      labelText: "یادداشت شما",
+                      formData: _formData,
+                      columnName: "comment"),
+                  Text("پس از نمایان شدن یادداشت تان، آنرا با دوستان تان شریک سازید!"),
+                  SizedBox(height: 10,),
+                  Text('ستوری کنید! پست بگذارید! #یادداشت_من #COVID19-AFG', style: TextStyle(fontWeight: FontWeight.w600),)
                 ],
               ),
             ),
@@ -79,6 +155,35 @@ class _CommentState extends State<Comment>
         ),
       ),
     );
+  }
+
+  Future chooseFile() async {
+    await ImagePicker.pickImage(source: ImageSource.gallery).then((image) {
+      setState(() {
+        _image = image;
+      });
+    });
+  }
+
+  Future uploadFile() async {
+    setState(() {
+      _uploadFileText = "درحال اپلود...";
+    });
+    StorageReference storageReference = FirebaseStorage.instance
+        .ref()
+        .child('profiles/${Path.basename(_image.path)}}');
+    StorageUploadTask uploadTask = storageReference.putFile(_image);
+    await uploadTask.onComplete;
+    print('File Uploaded');
+    storageReference.getDownloadURL().then((fileURL) {
+      setState(() {
+        _uploadedFileURL = fileURL;
+        _formData['img'] = fileURL;
+        print("-=================================");
+        print("FILEURL: $fileURL");
+        print("-=================================");
+      });
+    });
   }
 
   @override

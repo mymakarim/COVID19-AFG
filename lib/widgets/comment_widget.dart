@@ -3,6 +3,7 @@ import 'package:newschin/model/user.dart';
 import 'package:newschin/pages/comment.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/dom.dart' as dom;
+import 'package:newschin/single/single_page2.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../helper.dart';
@@ -76,6 +77,23 @@ Widget horizontalList({List<User> listData, String title, myContext}) {
           itemBuilder: (context, index) {
             return ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: SinglePage2(
+                            id: listData[index].id,
+                            author: listData[index].authorName,
+                            title: listData[index].postTitle,
+                            image: listData[index].image),
+                      );
+                    },
+                  ),
+                );
+              },
               leading: Container(
                 height: 50,
                 width: 50,

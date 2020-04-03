@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage>
         listData3.addAll(data3);
       });
 
-    var data4 = await _api.getComments(type: "category", value: 10, limit: 1);
+    var data4 = await _api.getUsers(type: "category", value: 10, limit: 1);
     if (mounted)
       setState(() {
         listData4.clear();
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage>
     return SmartRefresher(
         enablePullDown: true,
         enablePullUp: false,
-        header: MaterialClassicHeader(backgroundColor: Colors.redAccent, color: Colors.redAccent),
+        header: MaterialClassicHeader(color: Colors.redAccent),
         footer: CustomFooter(
           builder: (BuildContext context, LoadStatus mode) {
             Widget body;
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage>
               );
             }else if (index == 2) {
               return SizedBox(
-                height: 360,
+                height: 400,
                 child: ads(
                     listData: listData4, title: "تبلیغات", myContext: context),
               );
@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage>
               );
             }else if (index == 5) {
               return SizedBox(
-                height: 360,
+                height: 400,
                 child: ads(
                     listData: listData4, title: "تبلیغات", myContext: context),
               );
