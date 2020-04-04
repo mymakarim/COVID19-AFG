@@ -43,9 +43,9 @@ class _AuthorState extends State<Author>
   getSqliteData() async {
     var sqliteData = await dbProvider.getUsers(type: widget.type, value: widget.value, limit: 6, offset: offset);
     if(mounted)
-    setState(() {
-      listData.addAll(sqliteData);
-    });
+      setState(() {
+        listData.addAll(sqliteData);
+      });
   }
 
   void getUsers(bool isLoading) async {
@@ -55,12 +55,12 @@ class _AuthorState extends State<Author>
         limit: widget.limit,
         offset: offset);
     if(mounted)
-    setState(() {
-      if (!isLoading) {
-        listData.clear();
-      }
-      listData.addAll(data);
-    });
+      setState(() {
+        if (!isLoading) {
+          listData.clear();
+        }
+        listData.addAll(data);
+      });
   }
 
   void _onRefresh() async {

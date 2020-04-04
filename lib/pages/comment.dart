@@ -69,45 +69,27 @@ class _CommentState extends State<Comment>
               autovalidate: true,
               child: Column(
                 children: <Widget>[
-                  _image == null
-                      ? RaisedButton(
-                          child: Text(
-                            'عکس شما',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onPressed: chooseFile,
-                          color: Colors.indigoAccent,
-                        )
-                      : Container(),
-                  _image != null && _uploadedFileURL == null
-                      ? RaisedButton(
-                          child: Text(
-                            '$_uploadFileText',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onPressed: uploadFile,
-                          color: Colors.redAccent,
-                        )
-                      : Container(),
-//                      _image != null
-//                          ? RaisedButton(
-//                        child: Text('Clear Selection'),
-//                        onPressed: clearSelection,
-//                      )
-//                          : Container(),
-                  _uploadedFileURL != null ? Text('Uploaded Image') : Text(""),
-                  _uploadedFileURL != null
-                      ? ConstrainedBox(
-                          constraints: BoxConstraints(
-                              minHeight: 100,
-                              minWidth: MediaQuery.of(context).size.width),
-                          child: CachedNetworkImage(
-                            imageUrl: _uploadedFileURL,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        minHeight: 200,
+                        minWidth: 200,
+                        maxWidth: 200,
+                        maxHeight: 200),
+                    child: (_image != null && _uploadedFileURL == null)
+                        ? CircleAvatar(
+                            backgroundImage: new FileImage(_image),
+                            radius: 200.0,
+                          )
+                        : CachedNetworkImage(
+                            imageUrl: (_uploadedFileURL != null)
+                                ? _uploadedFileURL
+                                : Helper.authorImage,
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(200),
                                 image: DecorationImage(
                                   image: imageProvider,
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -125,11 +107,39 @@ class _CommentState extends State<Comment>
                             errorWidget: (context, url, error) =>
                                 Icon(Icons.image),
                           ),
+                  ),
+                  _image == null
+                      ? RaisedButton.icon(
+                          icon: Icon(
+                            Icons.person,
+                            color: Colors.black,
+                          ),
+                          label: Text(
+                            'انتخاب عکس',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: chooseFile,
+                          color: Colors.indigoAccent,
                         )
-                      : Container(
-                          child: Text(
-                              "نوت: تنها زمانیکه عکس شما نمایان شد پیام تان را ارسال کنید"),
-                        ),
+                      : Container(),
+                  _image != null && _uploadedFileURL == null
+                      ? RaisedButton.icon(
+                          icon: Icon(Icons.file_upload),
+                          label: Text(
+                            '$_uploadFileText',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: uploadFile,
+                          color: Colors.redAccent,
+                        )
+                      : Container(),
+//                      _image != null
+//                          ? RaisedButton(
+//                        child: Text('Clear Selection'),
+//                        onPressed: clearSelection,
+//                      )
+//                          : Container(),
+
                   Helper().yahyaTextField(
                     formData: _formData,
                     columnName: "name",
@@ -145,9 +155,15 @@ class _CommentState extends State<Comment>
                       labelText: "یادداشت شما",
                       formData: _formData,
                       columnName: "comment"),
-                  Text("پس از نمایان شدن یادداشت تان، آنرا با دوستان تان شریک سازید!"),
-                  SizedBox(height: 10,),
-                  Text('ستوری کنید! پست بگذارید! #یادداشت_من #COVID19-AFG', style: TextStyle(fontWeight: FontWeight.w600),)
+                  Text(
+                      "پس از نمایان شدن یادداشت تان، آنرا با دوستان تان شریک سازید!"),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'ستوری کنید! پست بگذارید! #یادداشت_من #COVID19-AFG',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  )
                 ],
               ),
             ),

@@ -42,7 +42,7 @@ class _SinglePage2State extends State<SinglePage2> {
 //  yahya
   bool _showAppbar = true;
   ScrollController _scrollBottomBarController =
-      new ScrollController(); // set controller on scrolling
+  new ScrollController(); // set controller on scrolling
   bool isScrollingDown = false;
   bool _show = true;
   double bottomBarHeight = 50; // set bottom bar height
@@ -115,7 +115,7 @@ class _SinglePage2State extends State<SinglePage2> {
   void getUser() async {
     ApiProvider _api = new ApiProvider();
     var data =
-        await _api.getUser(id: id, title: title, image: image, author: author);
+    await _api.getUser(id: id, title: title, image: image, author: author);
     setState(() {
       listDataSingle.addAll(data);
     });
@@ -186,7 +186,7 @@ class _SinglePage2State extends State<SinglePage2> {
                           child: CircularProgressIndicator(
                             strokeWidth: 1,
                             valueColor:
-                                new AlwaysStoppedAnimation<Color>(Colors.redAccent),
+                            new AlwaysStoppedAnimation<Color>(Colors.redAccent),
                           ),
                         ),
                       ),
@@ -204,20 +204,20 @@ class _SinglePage2State extends State<SinglePage2> {
                           height: 1.8),
                     ),
                   ),
-        (listDataSingle.length > 0)?
-        ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 25),
+                  (listDataSingle.length > 0)?
+                  ListTile(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 25),
                     onTap: () {},
                     title: Text(
                       widget.author,
                       style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                      TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text("${listDataSingle[0].date}",
                       style: TextStyle(fontSize: 11),),
                     trailing: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 3),
+                      EdgeInsets.symmetric(horizontal: 25, vertical: 3),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Color(0xFFd73e4d),
@@ -236,46 +236,46 @@ class _SinglePage2State extends State<SinglePage2> {
                         horizontal: 15, vertical: 10),
                     child: (listDataSingle.length > 0)
                         ? Html(
-                            data: """
+                      data: """
                             ${listDataSingle[0].postContent}
             """,
-                            //Optional parameters:
-                            padding: EdgeInsets.all(8.0),
-                            linkStyle: const TextStyle(
-                              color: Colors.redAccent,
-                              decorationColor: Colors.redAccent,
-                              decoration: TextDecoration.underline,
-                            ),
-                            onLinkTap: (url) async {
-                              if (await canLaunch(url)) {
-                                await launch(url);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
-                            },
-                            onImageTap: (src) {
-                              print(src);
-                            },
-                            customTextAlign: (dom.Node node) {
-                              if (node is dom.Element) {
-                                switch (node.localName) {
-                                  case "p":
-                                    return TextAlign.right;
-                                }
-                              }
-                              return null;
-                            },
-                          )
+                      //Optional parameters:
+                      padding: EdgeInsets.all(8.0),
+                      linkStyle: const TextStyle(
+                        color: Colors.redAccent,
+                        decorationColor: Colors.redAccent,
+                        decoration: TextDecoration.underline,
+                      ),
+                      onLinkTap: (url) async {
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      onImageTap: (src) {
+                        print(src);
+                      },
+                      customTextAlign: (dom.Node node) {
+                        if (node is dom.Element) {
+                          switch (node.localName) {
+                            case "p":
+                              return TextAlign.right;
+                          }
+                        }
+                        return null;
+                      },
+                    )
                         : Center(
-                            child: CircularProgressIndicator(
-                            backgroundColor: Colors.redAccent,
-                            strokeWidth: 1,
-                          )),
+                        child: CircularProgressIndicator(
+                          backgroundColor: Colors.redAccent,
+                          strokeWidth: 1,
+                        )),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
-                            (MediaQuery.of(context).size.width - 250) / 2,
+                        (MediaQuery.of(context).size.width - 250) / 2,
                         vertical: 10),
                     child: RaisedButton(
                       color: Color(0xFFd73e4d),

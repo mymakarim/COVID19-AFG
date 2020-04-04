@@ -17,11 +17,11 @@ class ArchivePage extends StatefulWidget {
 
   ArchivePage(
       {Key key,
-      this.title: "Archive",
-      this.type,
-      this.value,
-      this.limit,
-      this.offset})
+        this.title: "Archive",
+        this.type,
+        this.value,
+        this.limit,
+        this.offset})
       : super(key: key);
 
   @override

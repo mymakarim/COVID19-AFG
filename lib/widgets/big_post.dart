@@ -63,9 +63,9 @@ Widget bigPost({List<User> listData, String title, mycontext}) {
                         child: Text(
                           "مشاهده همه",
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 11,
-                            color: Colors.white
+                              fontWeight: FontWeight.w400,
+                              fontSize: 11,
+                              color: Colors.white
                           ),
                         ),
                       ),
