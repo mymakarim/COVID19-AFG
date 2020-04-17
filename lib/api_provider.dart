@@ -29,7 +29,7 @@ class ApiProvider {
   }
 
   Future<int> sendComment({String name, String desc, String comment, String img}) async {
-    final response = await http.post("http://newschin.com/yahya_insert_draft.php", body:{"name": name, "comment": comment, "desc": desc, "img": img});
+    final response = await http.post("YOUR UPLOADING URL", body:{"name": name, "comment": comment, "desc": desc, "img": img});
     if(response.statusCode == 200){
       return 1;
     }else{
